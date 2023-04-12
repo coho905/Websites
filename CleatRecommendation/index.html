@@ -1,0 +1,85 @@
+<!DOCTYPE html>  
+ <html>  
+ <head>  
+  <title>Culminating</title>  
+</head>  
+ <body>  
+     <h2>What Cleat Should I Use?</h2>  
+    <form>  
+     <fieldset>  
+        <legend>Football Information</legend>  
+        <label>Number of Foot Injuries</label><br>  
+        <input type="number" name="foot" id="foot"><br>  
+         <label>Number of Ankle Injuries</label><br>  
+         <input type="number" name="ankle" id="ankle"><br>  
+       
+         <br><label>Enter your position</label><br>  
+         <input type="radio" id="position" name="position" value="Low Top"/>QB, RB, WR, CB  <br>  
+         <input type="radio" id="position" name="position" value="Mid Top"/>TE, LB, DL <br/>    
+         <input type="radio" id="position" name="position" value="High Top"/>OL <br/>   
+       <br><label>Field Type</label><br>  
+         <input type="radio" id="type" name="type" value="Rubber Molded Studs"/>Turf<br/>   
+          <input type="radio" id="type" name="type" value=" Hard Molded Studs"/>Field<br/> <br/>
+         <input type="button" value="Submit" onclick="on();" >  
+       <script>
+       </script>
+     </fieldset>  
+    <h2 id="final"></h2>
+  </form>  
+
+
+
+  <script>
+    function on(){
+      var one = document.getElementById("foot").value;
+      var two = document.getElementById("ankle").value;
+      var three = document.getElementById("position").value;
+      var four = document.getElementById("type").value;
+      var hi;
+      var hello;
+      if(one <= 1){
+        hi = "recommend taping";
+      }
+      else{
+        hi = "recommend taping and heel cup or toe plate";
+      }
+      if(two <= 1){
+        hello = "recommend taping";
+      }
+      else if (two ==2){
+        hello = " recommend taping and ankle brace";
+      }
+      else{
+        hello = "recommend taping/ ankle brace and more protective cleat";
+      }
+      var final = three + " "+ four + " "+ hi + " " + hello;
+      console.log(final)
+      document.getElementById('final').innerHTML = final;
+    }
+
+
+  //an immediately invoked function that checks to see if the text is in local storage already
+  (function(){
+    //if the text is in local storage, set the html
+    if (localStorage.currentTotal){
+    console.log(localStorage.currentTotal);
+    document.getElementById('class').innerHTML = localStorage.getItem("currentTotal");
+  }
+    })();
+  //function that gets called for an onclick event
+  function myFunction() {
+// Store in local storage
+localStorage.setItem("currentTotal", "Class current balance total");
+//set the inner html to what is in local storage
+document.getElementById("class").innerHTML = localStorage.getItem("currentTotal");
+
+}
+</script>
+
+    
+    
+  </script>
+ </body>  
+
+   
+</html>  
